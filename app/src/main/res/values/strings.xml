@@ -1,3 +1,32 @@
 <resources>
-    <string name="app_name">MyLoginApp</string>
+    <string name="app_name">NacenMonitor</string>
+    <string name="app_version">Vesion 0.0.1</string>
+    <string name="actionToggleValues">Toggle Values</string>
+    <string name="actionToggleFilled">Toggle Filled</string>
+    <string name="actionToggleStepped">Toggle Stepped</string>
+    <string name="actionSave">Save to Gallery</string>
+    <string name="actionToggleCircles">Toggle Circles</string>
+
+    <string name="resSlo">Register your information</string>
+    <string name="resFullname">Full Name</string>
+    <string name="resUsername">Username</string>
+    <string name="resPhoneno">Phone Number</string>
+    <string name="resPw">Password</string>
+    <string name="resConfirmPw">Confirm Password</string>
+    <string name="resRegisbtn">REGISTER</string>
+    <string name="resLogin">Already have account? Login</string>
+
+    <string name="dashGraph">Graph</string>
+    <string name="dashInfor">Information</string>
+    <string name="dashSetting">Setting</string>
+
+    <string name="Signout">SIGN OUT</string>
+
+    <string-array name="Sensors">
+        <item>Sensor 1</item>
+        <item>Sensor 2</item>
+        <item>Sensor 3</item>
+
+    </string-array>
+
 </resources>

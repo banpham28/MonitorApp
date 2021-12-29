@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myloginapp">
+    package="com.example.NacenMonitor">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
 
     <application
         android:allowBackup="true"
@@ -8,14 +19,94 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyLoginApp">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.NacenMonitor">
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".LoginActivity" android:windowSoftInputMode="stateHidden" android:screenOrientation="portrait"  />
+        <activity android:name=".DashBoard" android:screenOrientation="portrait" />
+
+        <!-- Graph 1 !-->
+        <activity android:name=".Graph"
+        android:configChanges= "orientation|screenSize">      <!--  Allow Rotate Screen without reload the data of the whole page !-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.MainMenu" />
+        </activity>
+
+
+        <activity android:name=".Setting" />
+        <activity android:name=".RegisterAcitivity" android:windowSoftInputMode="adjustResize" />
+
+        <!-- Graph 2  !-->
+        <activity android:name=".GraphView"
+            android:configChanges= "orientation|screenSize">       <!-- Allow Rotate Screen without reload the data of the whole page !-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.MQTTInput" />
+        </activity>
+
+        <activity android:name=".MainMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.DashBoard" />
+        </activity>
+        <activity android:name=".Information">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.DashBoard" />
+        </activity>
+
+
+        <!-- Live Table   AT: Ấm Thượng DT Đoan Thượng A Main Menu        !-->
+        <activity android:name=".LiveTable_A">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.DashBoard" />
+        </activity>
+
+        <activity android:name=".LiveTable_DT" android:configChanges= "orientation|screenSize" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.LiveTable_A" />
+        </activity>
+
+        <activity android:name=".LiveTable_AT" android:configChanges= "orientation|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.LiveTable_A" />
+        </activity>
+
+        <activity android:name=".LiveTable_QR" android:screenOrientation="portrait" > <!-- lOCK on PORTRAIT !-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.LiveTable_A" />
+        </activity>
+
+
+        <!--    MQTT      !-->
+
+        <activity android:name=".MQTTInput">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.NacenMonitor.MainMenu" />
+        </activity>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService"
+            android:enabled="true">
+        </service>
+
     </application>
 
 </manifest>
